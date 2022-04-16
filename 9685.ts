@@ -106,8 +106,14 @@ namespace Servo {
         if (channel < 0 || channel > 15)
             return;
 
-        let reg = LED0_ON_L + 4 * channel + 1;
-        i2cwrite(PCA9685_ADDRESS, reg, 0x10);
+        let buf = pins.createBuffer(5);
+        buf[0] = LED0_ON_L + 4 * channel;
+        buf[1] = 0x00;
+        buf[2] = 0x10;
+        buf[3] = 0x00;
+        buf[4] = 0x00;
+        pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
+        FullOff(channel);
     }
 
     /**
@@ -120,8 +126,13 @@ namespace Servo {
         if (channel < 0 || channel > 15)
             return;
 
-        let reg = LED0_ON_L + 4 * channel + 3;
-        i2cwrite(PCA9685_ADDRESS, reg, 0x10);
+        let buf = pins.createBuffer(3);
+        buf[0] = LED0_ON_L + 4 * channel;
+        buf[1] = 0x00;
+        buf[2] = 0x00;
+        buf[3] = 0x00;
+        buf[4] = 0x10;
+        pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
     }
 
     /**
