@@ -100,7 +100,7 @@ namespace Servo {
      * Full On
      *
      */
-    //% blockId=setPWM block="Set pin|%channel|ON "
+    //% blockId=setPWM block="Set pin|%channel ON "
     //% weight=85
     export function FullOn(channel: number): void {
         if (channel < 0 || channel > 15)
@@ -114,7 +114,7 @@ namespace Servo {
      * Full Off
      *
      */
-    //% blockId=setPWM block="Set pin|%channel|Off "
+    //% blockId=setPWM block="Set pin|%channel Off "
     //% weight=85
     export function FullOff(channel: number): void {
         if (channel < 0 || channel > 15)
