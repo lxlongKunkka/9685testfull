@@ -113,7 +113,6 @@ namespace Servo {
         buf[3] = 0x00;
         buf[4] = 0x00;
         pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
-        FullOff(channel);
     }
 
     /**
@@ -126,7 +125,7 @@ namespace Servo {
         if (channel < 0 || channel > 15)
             return;
 
-        let buf = pins.createBuffer(3);
+        let buf = pins.createBuffer(5);
         buf[0] = LED0_ON_L + 4 * channel;
         buf[1] = 0x00;
         buf[2] = 0x00;
